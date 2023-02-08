@@ -26,10 +26,7 @@ let SaleService = class SaleService {
             return sale;
         }
         catch (error) {
-            if (error.name === "ValidationError") {
-                throw new common_1.BadRequestException(error.errors);
-            }
-            throw new common_1.ServiceUnavailableException();
+            throw new common_1.BadRequestException(error.message);
         }
     }
     async findAll() {

@@ -22,11 +22,11 @@ __decorate([
     __metadata("design:type", String)
 ], Sale.prototype, "brand", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)({ required: true, enum: ["Trading", "Facilitation"] }),
     __metadata("design:type", String)
 ], Sale.prototype, "transactionType", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)({ required: true, default: "Trading" }),
     __metadata("design:type", Number)
 ], Sale.prototype, "totalOrders", void 0);
 __decorate([
@@ -46,7 +46,7 @@ __decorate([
     __metadata("design:type", Date)
 ], Sale.prototype, "updatedAt", void 0);
 Sale = __decorate([
-    (0, mongoose_1.Schema)({ timestamps: true, collection: 'SaleData' })
+    (0, mongoose_1.Schema)({ timestamps: true, collection: "SaleData" })
 ], Sale);
 exports.Sale = Sale;
 const schema = mongoose_1.SchemaFactory.createForClass(Sale);

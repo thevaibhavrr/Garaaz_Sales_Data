@@ -1,14 +1,14 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-@Schema({ timestamps: true, collection: 'SaleData' })
+@Schema({ timestamps: true, collection: "SaleData" })
 export class Sale {
   @Prop({ required: true, default: Date.now() })
   date: Date;
   @Prop({ required: true })
   brand: string;
-  @Prop({ required: true })
+  @Prop({ required: true, enum: ["Trading", "Facilitation"] })
   transactionType: string;
-  @Prop({ required: true })
+  @Prop({ required: true, default: "Trading" })
   totalOrders: number;
   @Prop({ required: true })
   totalOrderValue: number;

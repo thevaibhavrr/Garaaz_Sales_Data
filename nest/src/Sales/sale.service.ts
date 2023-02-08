@@ -19,10 +19,7 @@ export class SaleService {
       const sale = await this.SaleModel.create(creatSaleDto);
       return sale;
     } catch (error) {
-      if (error.name === "ValidationError") {
-        throw new BadRequestException(error.errors);
-      }
-      throw new ServiceUnavailableException();
+      throw new BadRequestException (error.message);
     }
   }
 

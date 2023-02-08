@@ -5,10 +5,10 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
+  MDBRadio,
 } from "mdb-react-ui-kit";
 
 function Home() {
-  
   const [data, setData] = useState({
     date: "",
     brand: "",
@@ -59,7 +59,8 @@ function Home() {
     const saledata = await res.json();
     console.log(saledata);
     if (saledata.error) {
-      window.alert(saledata.error.message);
+      // window.alert(saledata.error.message);
+      window.alert(saledata.message);
     } else {
       window.alert("data succesfull added");
     }
@@ -102,15 +103,23 @@ function Home() {
               name="brand"
               value={data.brand}
             />{" "}
-            <MDBInput
-              wrapperClass="mb-4"
-              label="transactionType"
-              size="lg"
-              type="text"
-              onChange={HandlerInput}
-              name="transactionType"
-              value={data.transactionType}
-            />
+            <div className="d-md-flex ustify-content-start align-items-center mb-4">
+              <h6 class="fw-bold mb-0 me-4">transactionType</h6>
+              <MDBRadio
+                label="Trading"
+                name="transactionType"
+                onChange={HandlerInput}
+                value={"Trading"}
+                inline
+              />
+              <MDBRadio
+                label="Facilitation"
+                name="transactionType"
+                onChange={HandlerInput}
+                value={"Facilitation"}
+                inline
+              />
+            </div>
             <MDBInput
               wrapperClass="mb-4"
               label="totalOrders"

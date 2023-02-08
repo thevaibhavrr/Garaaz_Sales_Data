@@ -7,7 +7,7 @@ import Header from "./component/Header/header";
 function App() {
   return (
     <div className="App">
-    {/* navbar */}
+      {/* navbar */}
       <Header />
       {/* body */}
       <Routes>
